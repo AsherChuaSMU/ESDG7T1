@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_QfiRwEifEemNL6ux6_mdIA" targetNamespace="http://tns.tibco.com/bw/composite/Alan_Restaurant_Menu.module" name="Alan_Restaurant_Menu.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_PF5H0EirEemNL6ux6_mdIA" name="restaurant_menu" promote="ComponentProcess/restaurant_menu">
+    <sca:interface.wsdl xmi:id="_PG_UAEirEemNL6ux6_mdIA" interface="http://xmlns.example.com/20190317175727PLT#wsdl.interface(restaurant_menu)" scaext:wsdlLocation="../Processes/alan_restaurant_menu/module/Process.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_PItyUEirEemNL6ux6_mdIA" name="RestService" path="/restaurant_menu" docBasePath="http://localhost:7777/Alan_Restaurant_Menu.module" docResourcePath="restaurant_menu" basePath="/" connector="alan_restaurant_menu.module.restaurant_menu" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/alan_restaurant_menu.module.Process-restaurant_menu.json">
+      <operation xmi:id="_PIyq0EirEemNL6ux6_mdIA" operationName="get" nickname="get-restaurant_menu" httpMethod="GET" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_PPoSoEirEemNL6ux6_mdIA"/>
+      <advancedConfig xmi:id="_PIwOkEirEemNL6ux6_mdIA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_PIyq0UirEemNL6ux6_mdIA" bindingName="RestService"/>
+  </sca:service>
+  <sca:property xmi:id="_REIzoEifEemNL6ux6_mdIA" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_REO6QEifEemNL6ux6_mdIA" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_RESkoEifEemNL6ux6_mdIA" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_REWPAEifEemNL6ux6_mdIA" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_REZSUEifEemNL6ux6_mdIA" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_REcVoEifEemNL6ux6_mdIA" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_REex4EifEemNL6ux6_mdIA" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:component xmi:id="_Q3uIQEifEemNL6ux6_mdIA" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_Q3uIQUifEemNL6ux6_mdIA" processName="alan_restaurant_menu.module.Process"/>
+    <sca:service xmi:id="_PEuDIEirEemNL6ux6_mdIA" name="restaurant_menu">
+      <sca:interface.wsdl xmi:id="_PF2EgEirEemNL6ux6_mdIA" interface="http://xmlns.example.com/20190317175727PLT#wsdl.interface(restaurant_menu)" scaext:wsdlLocation="../Processes/alan_restaurant_menu/module/Process.bwp"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>

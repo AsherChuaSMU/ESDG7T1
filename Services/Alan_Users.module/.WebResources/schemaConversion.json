@@ -1,0 +1,17 @@
+{"records": [
+    {
+        "jsonSchemaLocation": "/Alan_Users.module/Service Descriptors/alan_users.module.Process-Users.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.com/namespaces/tns/1553083581346"
+    },
+    {
+        "jsonSchemaLocation": "/Alan_Users.module/Service Descriptors/alan_users.module.Process-Users.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.alanexpress.com/Users"
+    },
+    {
+        "jsonSchemaLocation": "/Alan_Users.module/Service Descriptors/alan_users.module.Process-Users.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.alanexpress.com/Books"
+    }
+]}

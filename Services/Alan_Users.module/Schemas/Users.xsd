@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid Studio 2018 (https://www.liquid-technologies.com)-->
+<schema xmlns:tns="http://www.alanexpress.com/Books" elementFormDefault="qualified" targetNamespace="http://www.alanexpress.com/Books" xmlns="http://www.w3.org/2001/XMLSchema">
+    <complexType name="User">
+        <sequence>
+            <element name="username" type="string" minOccurs="1" />
+            <element name="password" type="string" minOccurs="1" />
+            <element name="usertype" type="string" minOccurs="1" />
+            <element name="gender" type="string" minOccurs="1" />
+            <element name="longitude" type="string" minOccurs="0" />
+            <element name="latitude" type="string" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <element name="User" type="tns:User" />
+    <complexType name="Users">
+        <sequence>
+            <element ref="tns:User" minOccurs="0" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+    <element name="Users" type="tns:Users" />
+</schema>

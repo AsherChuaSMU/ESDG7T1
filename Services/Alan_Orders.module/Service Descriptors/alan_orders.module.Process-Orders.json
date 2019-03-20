@@ -1,0 +1,51 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Summary about Orders",
+    "description" : "Summary about Orders"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/orders" : {
+      "get" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "get-orders",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "a orders_summary to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/orders_summary"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "orders_summary" : {
+      "type" : "object",
+      "required" : [ "food_name", "resturant_name", "customer_id", "order_id" ],
+      "properties" : {
+        "order_id" : {
+          "type" : "integer"
+        },
+        "customer_id" : {
+          "type" : "string"
+        },
+        "food_name" : {
+          "type" : "integer"
+        },
+        "resturant_name" : {
+          "type" : "integer"
+        }
+      }
+    }
+  }
+}
