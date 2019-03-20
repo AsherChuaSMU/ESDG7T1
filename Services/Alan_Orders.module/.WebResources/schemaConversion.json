@@ -1,5 +1,0 @@
-{"records": [{
-    "jsonSchemaLocation": "/Alan_Orders.module/Service Descriptors/alan_orders.module.Process-Orders.json",
-    "conversionType": "linked",
-    "xsdSchemaTargetNamespace": "http://www.alanexpress.com/Summary"
-}]}

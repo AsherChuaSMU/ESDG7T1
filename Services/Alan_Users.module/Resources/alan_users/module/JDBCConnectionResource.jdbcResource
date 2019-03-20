@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:subject="http://xsd.tns.tibco.com/trinity/models/identity/subject" xmi:id="_pKLmkUsQEem3Zfb6Ko4rvw" name="alan_users.module.JDBCConnectionResource" type="jdbc:JdbcDataSource">
-  <jndi:reference xmi:id="_pKLmkksQEem3Zfb6Ko4rvw" key="subjectJndiName" type="subject:SubjectConfiguration" value=""/>
-  <jndi:configuration xsi:type="jdbc:JdbcDataSource" xmi:id="_pKLmk0sQEem3Zfb6Ko4rvw" username="root" password="#!zxuDc6XCi4UVlzUn7kXMUA==">
-    <connectionConfig xsi:type="jdbc:NonXaConnection" xmi:id="_pKLmlEsQEem3Zfb6Ko4rvw" jdbcDriver="com.mysql.jdbc.Driver" dbURL="jdbc:mysql://localhost:3306/alanexpress_user"/>
-    <connectionProperties xmi:id="_rM2B4EsQEem3Zfb6Ko4rvw" key="jarFile" value="mysql"/>
-  </jndi:configuration>
-</jndi:namedResource>
