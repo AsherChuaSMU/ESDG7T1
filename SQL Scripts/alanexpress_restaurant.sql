@@ -43,12 +43,7 @@ INSERT INTO `restaurant` (`restaurant_id`, `name`, `address`, `postal_code`, `de
 (1, 'Restaurant 1', 'SMU Labs', 641653, 'Description for Restaurant 1'),
 (2, 'Restaurant 2', 'Jurong West Street 61', 641652, 'Description for Restaurant 2'),
 (3, 'Restaurant 3', 'Dover Block 3', 665670, 'Description for Restaurant 3');
-COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
---
 
 -- --------------------------------------------------------
 
@@ -74,6 +69,12 @@ INSERT INTO `food` (`food_id`, `name`, `price`, `restaurant_id`) VALUES
 (1, 'Curry Rice', '10.50', 1),
 (2, 'Chicken Rice', '5.50', 2),
 (3, 'Bee Hoon', '7.00', 3);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+--
 
 -- --------------------------------------------------------
 
