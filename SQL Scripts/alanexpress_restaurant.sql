@@ -25,6 +25,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `resturant`
 --
 
+USE alanexpress_restaurant;
 DROP TABLE IF EXISTS `restaurant`;
 CREATE TABLE IF NOT EXISTS `restaurant` (
   `restaurant_id` int(11) NOT NULL AUTO_INCREMENT,

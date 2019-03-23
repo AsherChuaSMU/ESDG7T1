@@ -28,12 +28,15 @@ SET time_zone = "+00:00";
 -- Table structure for table `orders`
 --
 
+USE alanexpress_order;
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE IF NOT EXISTS `orders` (
-  `order_id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL AUTO_INCREMENT,
   `customer_id` varchar(32) NOT NULL,
   `food_id` int(11) NOT NULL,
   `restaurant_id` int(11) NOT NULL,
+  `driver_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`order_id`,`food_id`,`restaurant_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -42,8 +45,8 @@ CREATE TABLE IF NOT EXISTS `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `customer_id`, `food_id`, `restaurant_id`, `timestamp`) VALUES
-(1, 'hello', 1, 1, '2018-11-14 14:42:31');
+INSERT INTO `orders` (`order_id`, `customer_id`, `food_id`, `restaurant_id`, `driver_id`, `quantity`, `timestamp`) VALUES
+(1, 'hello', 1, 1, 1, 2, '2018-11-14 14:42:31');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

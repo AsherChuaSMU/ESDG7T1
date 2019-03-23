@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `drivers`
 --
 
+USE alanexpress_driver;
 DROP TABLE IF EXISTS `drivers`;
 CREATE TABLE IF NOT EXISTS `drivers` (
   `username` varchar(32) NOT NULL,
