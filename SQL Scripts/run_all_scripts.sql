@@ -137,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `customer_id` varchar(32) NOT NULL,
   `food_id` int(11) NOT NULL,
   `restaurant_id` int(11) NOT NULL,
-  `driver_id` int(11) NOT NULL,
+  `driver_id` int(11),
   `quantity` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`order_id`,`food_id`,`restaurant_id`)
