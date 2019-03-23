@@ -25,9 +25,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `resturant`
 --
 
-CREATE DATABASE IF NOT EXISTS alanexpress_user;
-CREATE DATABASE IF NOT EXISTS alanexpress_order;
-CREATE DATABASE IF NOT EXISTS alanexpress_driver;
+DROP DATABASE IF EXISTS alanexpress_restaurant;
 CREATE DATABASE IF NOT EXISTS alanexpress_restaurant;
 
 USE alanexpress_restaurant;
@@ -74,8 +72,13 @@ CREATE TABLE IF NOT EXISTS `food` (
 INSERT INTO `food` (`food_id`, `name`, `price`, `restaurant_id`) VALUES
 (1, 'Curry Rice', '10.50', 1),
 (2, 'Chicken Rice', '5.50', 2),
-(3, 'Bee Hoon', '7.00', 3);
+(3, 'Bee Hoon', '7.00', 3),
 (4, 'Sushi', '6.00', 3);
+COMMIT;
+
+
+DROP DATABASE IF EXISTS alanexpress_user;
+CREATE DATABASE IF NOT EXISTS alanexpress_user;
 
 USE alanexpress_user;
 DROP TABLE IF EXISTS `users`;
@@ -98,6 +101,10 @@ INSERT INTO `users` (`username`, `password`, `usertype` , `gender`) VALUES
 ('hey', 'hey123', 'owner', 'male'),
 ('bye', 'bye123', 'driver', 'female'),
 ('admin', 'admin123', 'admin', 'male');
+COMMIT;
+
+DROP DATABASE IF EXISTS alanexpress_driver;
+CREATE DATABASE IF NOT EXISTS alanexpress_driver;
 
 USE alanexpress_driver;
 DROP TABLE IF EXISTS `drivers`;
@@ -118,6 +125,10 @@ INSERT INTO `drivers` (`username`, `password`, `gender`) VALUES
 ('driver', 'driver123', 'male'),
 ('uncle', 'uncle123', 'female'),
 ('auntie', 'auntie123', 'male');
+COMMIT;
+
+DROP DATABASE IF EXISTS alanexpress_order;
+CREATE DATABASE IF NOT EXISTS alanexpress_order;
 
 USE alanexpress_order;
 DROP TABLE IF EXISTS `orders`;
