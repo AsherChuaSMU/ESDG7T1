@@ -26,6 +26,10 @@ SET time_zone = "+00:00";
 --
 
 DROP DATABASE IF EXISTS alanexpress_restaurant;
+DROP DATABASE IF EXISTS alanexpress_user;
+DROP DATABASE IF EXISTS alanexpress_driver;
+DROP DATABASE IF EXISTS alanexpress_order;
+
 CREATE DATABASE IF NOT EXISTS alanexpress_restaurant;
 
 USE alanexpress_restaurant;
@@ -77,7 +81,6 @@ INSERT INTO `food` (`food_id`, `name`, `price`, `restaurant_id`) VALUES
 COMMIT;
 
 
-DROP DATABASE IF EXISTS alanexpress_user;
 CREATE DATABASE IF NOT EXISTS alanexpress_user;
 
 USE alanexpress_user;
@@ -103,7 +106,6 @@ INSERT INTO `users` (`username`, `password`, `usertype` , `gender`) VALUES
 ('admin', 'admin123', 'admin', 'male');
 COMMIT;
 
-DROP DATABASE IF EXISTS alanexpress_driver;
 CREATE DATABASE IF NOT EXISTS alanexpress_driver;
 
 USE alanexpress_driver;
@@ -127,7 +129,6 @@ INSERT INTO `drivers` (`username`, `password`, `gender`) VALUES
 ('auntie', 'auntie123', 'male');
 COMMIT;
 
-DROP DATABASE IF EXISTS alanexpress_order;
 CREATE DATABASE IF NOT EXISTS alanexpress_order;
 
 USE alanexpress_order;
