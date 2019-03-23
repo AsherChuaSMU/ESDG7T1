@@ -70,6 +70,7 @@ INSERT INTO `food` (`food_id`, `name`, `price`, `restaurant_id`) VALUES
 (1, 'Curry Rice', '10.50', 1),
 (2, 'Chicken Rice', '5.50', 2),
 (3, 'Bee Hoon', '7.00', 3);
+(4, 'Sushi', '6.00', 3);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
