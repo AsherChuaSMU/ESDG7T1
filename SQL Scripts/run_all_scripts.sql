@@ -111,6 +111,7 @@ CREATE DATABASE IF NOT EXISTS alanexpress_driver;
 USE alanexpress_driver;
 DROP TABLE IF EXISTS `drivers`;
 CREATE TABLE IF NOT EXISTS `drivers` (
+  `driver_id` int(11) NOT NULL,
   `username` varchar(32) NOT NULL,
   `password` varchar(256) NOT NULL,
   `gender` varchar(32) NOT NULL,
@@ -123,10 +124,10 @@ CREATE TABLE IF NOT EXISTS `drivers` (
 -- Dumping data for table `drivers`
 --
 
-INSERT INTO `drivers` (`username`, `password`, `gender`) VALUES
-('driver', 'driver123', 'male'),
-('uncle', 'uncle123', 'female'),
-('auntie', 'auntie123', 'male');
+INSERT INTO `drivers` (`driver_id`, `username`, `password`, `gender`) VALUES
+('1', 'driver', 'driver123', 'male'),
+('2', 'uncle', 'uncle123', 'female'),
+('3', 'auntie', 'auntie123', 'male');
 COMMIT;
 
 CREATE DATABASE IF NOT EXISTS alanexpress_order;
