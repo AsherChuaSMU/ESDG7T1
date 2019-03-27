@@ -108,7 +108,7 @@ COMMIT;
 
 CREATE DATABASE IF NOT EXISTS alanexpress_driver;
 
-USE alanexpress_driver;
+/* USE alanexpress_driver;
 DROP TABLE IF EXISTS `drivers`;
 CREATE TABLE IF NOT EXISTS `drivers` (
   `driver_id` int(11) NOT NULL,
@@ -128,7 +128,7 @@ INSERT INTO `drivers` (`driver_id`, `username`, `password`, `gender`) VALUES
 ('1', 'driver', 'driver123', 'male'),
 ('2', 'uncle', 'uncle123', 'female'),
 ('3', 'auntie', 'auntie123', 'male');
-COMMIT;
+COMMIT; */
 
 CREATE DATABASE IF NOT EXISTS alanexpress_order;
 
@@ -139,8 +139,8 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `customer_id` varchar(32) NOT NULL,
   `food_id` int(11) NOT NULL,
   `restaurant_id` int(11) NOT NULL,
-  `driver_id` int(11),
-  `status` int(11),
+  `driver_id` varchar(32),
+  `status` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`order_id`,`food_id`,`restaurant_id`)
