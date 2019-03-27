@@ -27,7 +27,6 @@ SET time_zone = "+00:00";
 
 DROP DATABASE IF EXISTS alanexpress_restaurant;
 DROP DATABASE IF EXISTS alanexpress_user;
-DROP DATABASE IF EXISTS alanexpress_driver;
 DROP DATABASE IF EXISTS alanexpress_order;
 
 CREATE DATABASE IF NOT EXISTS alanexpress_restaurant;
@@ -106,9 +105,9 @@ INSERT INTO `users` (`username`, `password`, `usertype` , `gender`) VALUES
 ('admin', 'admin123', 'admin', 'male');
 COMMIT;
 
-CREATE DATABASE IF NOT EXISTS alanexpress_driver;
+/*  CREATE DATABASE IF NOT EXISTS alanexpress_driver;
 
-/* USE alanexpress_driver;
+USE alanexpress_driver;
 DROP TABLE IF EXISTS `drivers`;
 CREATE TABLE IF NOT EXISTS `drivers` (
   `driver_id` int(11) NOT NULL,
@@ -135,7 +134,7 @@ CREATE DATABASE IF NOT EXISTS alanexpress_order;
 USE alanexpress_order;
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE IF NOT EXISTS `orders` (
-  `order_id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) NOT NULL,
   `customer_id` varchar(32) NOT NULL,
   `food_id` int(11) NOT NULL,
   `restaurant_id` int(11) NOT NULL,
@@ -151,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `customer_id`, `food_id`, `restaurant_id`, `driver_id`, `status`, `quantity`, `timestamp`) VALUES
-(1, 'hello', 1, 1, 1, 2, 1, '2018-11-14 14:42:31');
+(1, 'hello', 1, 1, 'bye', 0, 3, '2018-11-14 14:42:31');
 
 COMMIT;
 
