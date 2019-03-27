@@ -149,8 +149,8 @@ CREATE TABLE IF NOT EXISTS `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `customer_id`, `food_id`, `restaurant_id`, `driver_id`, `quantity`, `timestamp`) VALUES
-(1, 'hello', 1, 1, 1, 2, '2018-11-14 14:42:31');
+INSERT INTO `orders` (`order_id`, `customer_id`, `food_id`, `restaurant_id`, `driver_id`, `status`, `quantity`, `timestamp`) VALUES
+(1, 'hello', 1, 1, 1, 2, 1, '2018-11-14 14:42:31');
 
 COMMIT;
 
