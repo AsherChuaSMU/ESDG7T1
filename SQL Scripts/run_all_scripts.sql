@@ -39,6 +39,8 @@ CREATE TABLE IF NOT EXISTS `restaurant` (
   `address` varchar(150) NOT NULL,
   `postal_code` int(6) DEFAULT NULL,
   `description` varchar(256) NOT NULL,
+  `longitude` varchar(256),
+  `latitude` varchar(256),
   PRIMARY KEY (`restaurant_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
