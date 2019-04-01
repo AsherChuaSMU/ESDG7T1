@@ -41,6 +41,7 @@ CREATE TABLE IF NOT EXISTS `restaurant` (
   `description` varchar(256) NOT NULL,
   `longitude` varchar(256),
   `latitude` varchar(256),
+  `username` varchar(32) NOT NULL,
   PRIMARY KEY (`restaurant_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
@@ -48,10 +49,10 @@ CREATE TABLE IF NOT EXISTS `restaurant` (
 -- Dumping data for table `restaurant`
 --
 
-INSERT INTO `restaurant` (`restaurant_id`, `name`, `address`, `postal_code`, `description`) VALUES
-(1, 'Restaurant 1', 'SMU Labs', 641653, 'Description for Restaurant 1'),
-(2, 'Restaurant 2', 'Jurong West Street 61', 641652, 'Description for Restaurant 2'),
-(3, 'Restaurant 3', 'Dover Block 3', 665670, 'Description for Restaurant 3');
+INSERT INTO `restaurant` (`restaurant_id`, `name`, `address`, `postal_code`, `description`, `username`) VALUES
+(1, 'Restaurant 1', 'SMU Labs', 641653, 'Description for Restaurant 1', 'hey'),
+(2, 'Restaurant 2', 'Jurong West Street 61', 641652, 'Description for Restaurant 2', 'owner1'),
+(3, 'Restaurant 3', 'Dover Block 3', 665670, 'Description for Restaurant 3', 'owner2');
 
 
 -- --------------------------------------------------------
@@ -103,6 +104,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`username`, `password`, `usertype` , `gender`) VALUES
 ('hello', 'hello123', 'customer', 'male'),
 ('hey', 'hey123', 'owner', 'male'),
+('owner1', 'owner123', 'owner', 'female'),
+('owner2', 'owner234', 'owner', 'male'),
 ('bye', 'bye123', 'driver', 'female'),
 ('admin', 'admin123', 'admin', 'male');
 COMMIT;
