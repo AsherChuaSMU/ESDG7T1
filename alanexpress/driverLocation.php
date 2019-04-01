@@ -38,26 +38,25 @@
 <script>
     var driver_id = "bye";//$_SESSION['user'];
     var serviceURL = "http://DESKTOP-MEDEL57:8081/orders";
+    var statusURL = "http://DESKTOP-MEDEL57:8081/orders1";
     var rows = "";
     $(function () {
         $.get(serviceURL, function (data) {
             var orderList = data.Order;
             if (orderList == undefined) { // did not manage to call service
                 $('#orderTable').empty();
-                $('body').append("<label>There is a problem retrieving orderss data, please try again later.</label>");
+                $('body').append("<label>There is a problem retrieving orders data, please try again later.</label>");
             }
-
             for (var i = 0; i <orderList.length; i++) {
-                if (orderList[i].status == "1"){
+                if (orderList[i].status == "0"){
                 eachRow =
                     "<td>" + orderList[i].order_id + "</td>" +
                     "<td>" + orderList[i].customer_id + "</td>" +
                     "<td>" + orderList[i].food_id + "</td>" +
                     "<td>" + orderList[i].quantity + "</td>" +
                     "<td>" + orderList[i].restaurant_id + "</td>" +
-                    "<td><a href='directions.php?order_id=" + orderList[i].order_id + "&restaurant_id=" + orderList[i].restaurant_id + "&customer_id=" + orderList[i].customer_id +"&driver_id="+driver_id+"'>" +
-                    "Deliver</a>";
-
+                    "<td><a href='directionsRes.php?order_id=" + orderList[i].order_id + "&restaurant_id=" + orderList[i].restaurant_id +"&driver_id="+driver_id+"'>" +
+                    "Deliver</a></td>";
                 rows += "<tr>" + eachRow + "</tr>";
                 }
             }
@@ -116,7 +115,7 @@
                                 $('#longitude').val(marker.getPosition().lng());
                                 infoWindow.setContent(results[0].formatted_address);
                                 infoWindow.open(map, marker);
-                                handle_post(marker.getPosition().lat(),marker.getPosition().lng());
+                                handle_PosPost(marker.getPosition().lat(),marker.getPosition().lng());
                             }
                         }
                     });
@@ -140,13 +139,13 @@
                         $('#longitude').val(marker.getPosition().lng());
                         infoWindow.setContent(results[0].formatted_address);
                         infoWindow.open(map, marker);
-                        handle_post(marker.getPosition().lat(),marker.getPosition().lng());
+                        handle_PosPost(marker.getPosition().lat(),marker.getPosition().lng());
                     }
                 }
             });
         }
       }
-      function handle_post(latitude, longitude){
+      function handle_PosPost(latitude, longitude){
         $.ajaxSetup({
           headers:{
             'Content-Type': "application/json"
@@ -160,7 +159,7 @@
           }
         ),
         function(data, status){
-          alert("Data: " + data + "\nStatus: " + status);
+          alert("Status: " + status + "\nDriver location has been updated");
         });
       }
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
