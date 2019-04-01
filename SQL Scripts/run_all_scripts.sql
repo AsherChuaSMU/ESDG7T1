@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `restaurant` (
 -- Dumping data for table `restaurant`
 --
 
-INSERT INTO `restaurant` (`restaurant_id`, `name`, `address`, `postal_code`, `description`, `username`, `longtitude`, `latitude`) VALUES
+INSERT INTO `restaurant` (`restaurant_id`, `name`, `address`, `postal_code`, `description`, `username`, `longitude`, `latitude`) VALUES
 (1, 'Restaurant 1', 'SMU Labs', 641653, 'Description for Restaurant 1', 'hey', '103.85062210000001', '1.2937406999999999'),
 (2, 'Restaurant 2', 'Jurong West Street 61', 641652, 'Description for Restaurant 2', 'owner1', '103.69794003403626', '1.340770889150037'),
 (3, 'Restaurant 3', 'Dover Block 3', 665670, 'Description for Restaurant 3', 'owner2', '103.68342391884767', '1.3496874174847742');
