@@ -105,37 +105,37 @@
                       {
                           "username": ""+name+"",
                           "password": ""+name+"",
-                          "usertype": "facebookUser",
+                          "usertype": "customer",
                           "gender": "male",
-                          "longitude": "string",
-                          "latitude": "string"
+                          "email": ""+email+"",
+                          "longitude": "103.84981790000006",
+                          "latitude": "1.294667"
                       }) 
-              ,function(data, status){
-                  alert ("Data: "+data+ "\nStatus: "+status);
-                  window.location.replace("/alanexpress-final/list-view-restaurant.php?user="+response.name+"&email="+response.email);
-              });
+              // ,function(data, status){
+              //     alert ("Data: "+data+ "\nStatus: "+status);
+              //     // window.location.replace("/alanexpress-final/list-view-restaurant.php?user="+response.name+"&gender=male");
+              // }
+              );
 
               // window.location.assign("/alanexpress-final/list-view-restaurant.php?user="+name+"&email="+email);
               setTimeout(function () {
                 //Redirect with JavaScript
-                window.location.href= 'http://localhost/alanexpress-final/list-view-restaurant.php?user='+name+"&email="+email;
+                window.location.href= 'http://localhost/alanexpress-final/list-view-restaurant.php?user='+name+"&gender=male";
              }, 2000);
               
               }
-
-             
             
             
-            // <!--
+          
             //   Below we include the Login Button social plugin. This button uses
             //   the JavaScript SDK to present a graphical Login button that triggers
             //   the FB.login() function when clicked.
             // -->
 
-            //NOTE HEREEEE: CODE THAT IS BELOW THIS LINE IS A THE BUTTON FOR THE LOGIN PAGE 
-            // <script src='script1.js' type='text/javascript'></script>
-            // <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+         //NOTE HEREEEE: CODE THAT IS BELOW THIS LINE IS A THE BUTTON FOR THE LOGIN PAGE 
+            // <script src='script1.js' type='text/javascript'></script> 
+           // <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
             // </fb:login-button>
             
             // <div id="status">
-            // </div>
+            // </div> 

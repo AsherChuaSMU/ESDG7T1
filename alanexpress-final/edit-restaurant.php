@@ -62,7 +62,7 @@ require_once 'include/token.php';
     $(function () {
         // Change serviceURL to your own
 
-        var serviceURL = "http://SMUImage:8080/restaurants/<?php echo $_GET['restaurant_id'];?>";
+        var serviceURL = "<?php echo $_SESSION['url']?>:8080/restaurants/<?php echo $_GET['restaurant_id'];?>";
         var rows = "";
         $.get(serviceURL, function (data) {
             var foodList = data.Food; //the arr is in data.Book of the JSON
@@ -116,7 +116,7 @@ require_once 'include/token.php';
         }
     });
         
-        $.post( "http://SMUImage:8080/restaurants2",
+        $.post( "<?php echo $_SESSION['url']?>:8080/restaurants2",
             JSON.stringify(
             {
                 "name": ""+foodName+"",
@@ -137,7 +137,7 @@ require_once 'include/token.php';
 function delFood(foodID){
     var food_id = foodID;
     // alert(food_id);
-    var serviceURL = "http://SMUImage:8080/restaurants3/"+food_id;
+    var serviceURL = "<?php echo $_SESSION['url']?>:8080/restaurants3/"+food_id;
 
         $.ajax({
     url: serviceURL,

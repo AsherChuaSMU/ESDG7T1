@@ -40,8 +40,8 @@ require_once 'include/common.php';
   <body>
 <script>
     var driver_id = "<?php echo($_SESSION['user']); ?>";
-    var serviceURL = "http://SMUImage:8081/orders";
-    var statusURL = "http://SMUImage:8081/orders1";
+    var serviceURL = "<?php echo $_SESSION['url']?>:8081/orders";
+    var statusURL = "<?php echo $_SESSION['url']?>:8081/orders1";
     var rows = "";
     $(function () {
         $.get(serviceURL, function (data) {
@@ -83,7 +83,7 @@ require_once 'include/common.php';
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
       var map, infoWindow;
-      var userURL = "http://SMUImage:8082/users2";
+      var userURL = "<?php echo $_SESSION['url']?>:8082/users2";
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},

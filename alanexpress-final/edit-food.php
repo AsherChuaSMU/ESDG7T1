@@ -42,7 +42,7 @@ $restaurantID = $_POST['restaurantID'];
                 <th></th>
             </tr>
             <tr>
-                <td><input type="text" name="FoodName" id= "FoodName" value=<?php echo $foodName?> size="10" ></td>
+                <td><input type="text" name="FoodName" id= "FoodName" value="<?php echo $foodName?>" size="10" ></td>
                 <td><input type="text" name="FoodPrice" id="FoodPrice" value=<?php echo $foodPrice?> size="10"></td>
                 <td><button type="submit" onclick="javascript:editFood()">Done</button></td>
             </tr>
@@ -55,6 +55,7 @@ $restaurantID = $_POST['restaurantID'];
     <form id ="form" method="post" action ="owner-view.php">   
         <input type="submit" value="Cancel">
     </form>
+    <!-- <a href="javascript:history.back()">Go Back</a> -->
     </div>
 
 <script>
@@ -71,7 +72,7 @@ function editFood(){
         }
     });
         
-        $.post( "http://SMUImage:8080/restaurants1",
+        $.post( "<?php echo $_SESSION['url']?>:8080/restaurants1",
             JSON.stringify(
             {
                 "food_id": foodID,
@@ -83,6 +84,8 @@ function editFood(){
     ,function(data, status){
         alert ("Data: "+data+ "\nStatus: "+status);
     });
+
+              
 }
   
 </script>

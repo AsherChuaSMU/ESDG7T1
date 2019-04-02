@@ -4,7 +4,7 @@
 // require_once 'include/session.php';
 require_once 'include/common.php';
 
-$serviceURL = "http://SMUImage:8080/restaurants1/".$_SESSION['user'];
+$serviceURL = $_SESSION['url'].":8080/restaurants1/".$_SESSION['user'];
 // // Service invocation via GET
     $json = file_get_contents($serviceURL);
 
@@ -93,7 +93,7 @@ $serviceURL = "http://SMUImage:8080/restaurants1/".$_SESSION['user'];
   
   $(document).ready(function(){
      // Change serviceURL to your own
-     var serviceURL = "http://SMUImage:8081/orders4/<?php echo $restaurant_id ?>";
+     var serviceURL = "<?php echo $_SESSION['url']?>:8081/orders4/<?php echo $restaurant_id ?>";
         var rows = "";
         $.get(serviceURL, function (data) {
             var orderList = data.Order; //the arr is in data.Order of the JSON

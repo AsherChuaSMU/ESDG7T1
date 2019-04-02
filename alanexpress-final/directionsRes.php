@@ -1,3 +1,6 @@
+<?php
+require_once 'include/common.php';
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -37,9 +40,9 @@
     var driver_id = "<?php echo $_GET["driver_id"]; ?>";
     var restaurant_id = "<?php echo $_GET["restaurant_id"]; ?>";
     var currOrder_id = "<?php echo $_GET["order_id"]; ?>";
-    var ordersURL = "http://SMUImage:8081/orders2/" + currOrder_id;
-    var driverURL = "http://SMUImage:8082/users1/" + driver_id;
-    var restaurantURL = "http://SMUImage:8080/restaurants/";
+    var ordersURL = "<?php echo $_SESSION['url']?>:8081/orders2/" + currOrder_id;
+    var driverURL = "<?php echo $_SESSION['url']?>:8082/users1/" + driver_id;
+    var restaurantURL = "<?php echo $_SESSION['url']?>:8080/restaurants/";
     var rows = ""
       $(function(){
         $.get(ordersURL, function (data) { //print current order list

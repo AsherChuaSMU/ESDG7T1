@@ -19,7 +19,7 @@ $enteredPwd = $_POST['password'];
 
 
 // Replace this serviceURL to yours
-$serviceURL = "http://SMUImage:8082/users1/".$username;
+$serviceURL = $_SESSION['url'].":8082/users1/".$username;
 
 
 // Service invocation via GET
