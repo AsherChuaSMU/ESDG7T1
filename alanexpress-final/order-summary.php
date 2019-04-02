@@ -109,7 +109,7 @@ $serviceURL = "http://SMUImage:8080/restaurants1/".$_SESSION['user'];
                 if(orderList[i].status == 1){
                   order_status = "Someone picked up the order and is on the way!"
                 }else if(orderList[i].status == 2){
-                  order_status = "Someone picked up the order and is on the way!"
+                  order_status = "Order has been delivered!"
                 }
                 eachRow =
                     "<td>" + (i+1) + "</td>" +

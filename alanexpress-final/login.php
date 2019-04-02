@@ -59,7 +59,7 @@ if (isset($user) && $password == $enteredPwd && $usertype == 'admin'){
     $_SESSION['gender'] = $gender;
     $token = generate_token($username);
     $_SESSION['token'] = $token;
-    header("Location: list-view-restaurant.php");
+    header("Location: driverLocation.php");
 } elseif(isset($user) && $password == $enteredPwd && $usertype == 'owner'){
     $_SESSION['restaurant_id'] = $data['restaurant_id'];
     $_SESSION['admin'] = 0;

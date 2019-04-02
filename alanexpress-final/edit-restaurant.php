@@ -136,7 +136,7 @@ require_once 'include/token.php';
 
 function delFood(foodID){
     var food_id = foodID;
-    alert(food_id);
+    // alert(food_id);
     var serviceURL = "http://SMUImage:8080/restaurants3/"+food_id;
 
         $.ajax({
@@ -144,7 +144,7 @@ function delFood(foodID){
     type: 'DELETE',
     success: function(result) {
         // Do something with the result
-        alert("daebak");
+        // alert("daebak");
     }
 });
     refresh();

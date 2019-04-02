@@ -17,7 +17,7 @@ session_start();
 ini_set('display_errors', 1);
 
 # get configuration parameters
-include "configuration.php";
+// include "configuration.php";
 
 
 error_reporting(E_ALL ^ E_NOTICE);

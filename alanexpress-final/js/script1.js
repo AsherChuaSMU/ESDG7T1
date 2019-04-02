@@ -10,6 +10,7 @@
                 if (response.status === 'connected') {
                   // Logged into your app and Facebook.
                   testAPI();
+                  // window.location.assign("/alanexpress-final/list-view-restaurant.php?user=dsds&email=dsds");
                 } else {
                   // The person is not logged into your app or we are unable to tell.
                   document.getElementById('status').innerHTML = 'Please log ' +
@@ -71,11 +72,58 @@
                   document.getElementById('status').innerHTML =
                     'Thanks for logging in, ' + response.name + ' '+response.email +'!'; 
                     // '<%Session["user"] = "' + response.name + '"; %>'
-                      window.location.assign("/alanexpress/list-view-restaurant.php?user="+response.name);
-      
+                    
+                    addUser(response.name, response.email);
+                    // window.location.assign("/alanexpress-final/list-view-restaurant.php?user="+response.name+"&email="+response.email);
+                   
                     //  window.location.replace("restaraunt-view.php");
                 });
               }
+
+              // function getUser(name,email){
+              //   var getUserURL = "http://SMUImage:8082/users1/"+name;
+              //   $.get(getUserURL, function (data) {
+              //     var username = data.username; //the arr is in data.Order of the JSON
+      
+              // }) // $.get
+              //     .fail(function () {
+              //       addUser(name, email);
+              //     })
+              //   // window.location.assign("/alanexpress-final/list-view-restaurant.php?user="+name);
+              // }
+
+            function addUser(name, email) {
+              
+                $.ajaxSetup({
+                  headers:{
+                      'Content-Type':"application/json"
+                  }
+              });
+                  
+              $.post("http://SMUImage:8082/users1",
+                      JSON.stringify(
+                      {
+                          "username": ""+name+"",
+                          "password": ""+name+"",
+                          "usertype": "facebookUser",
+                          "gender": "male",
+                          "longitude": "string",
+                          "latitude": "string"
+                      }) 
+              ,function(data, status){
+                  alert ("Data: "+data+ "\nStatus: "+status);
+                  window.location.replace("/alanexpress-final/list-view-restaurant.php?user="+response.name+"&email="+response.email);
+              });
+
+              // window.location.assign("/alanexpress-final/list-view-restaurant.php?user="+name+"&email="+email);
+              setTimeout(function () {
+                //Redirect with JavaScript
+                window.location.href= 'http://localhost/alanexpress-final/list-view-restaurant.php?user='+name+"&email="+email;
+             }, 2000);
+              
+              }
+
+             
             
             
             // <!--
