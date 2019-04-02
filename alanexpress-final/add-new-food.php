@@ -52,7 +52,7 @@ $(document).ready(function(){
         }
     });
         
-        $.post( "http://SMUImage:8080/restaurants2",
+        $.post( "<?php echo $_SESSION['url']?>:8080/restaurants2",
             JSON.stringify(
             {
                 "name": ""+foodName+"",

@@ -47,7 +47,7 @@ require_once 'include/token.php';
     $(function () {
         // Change serviceURL to your own
 
-        var serviceURL = "http://SMUImage:8080/restaurants/<?php echo $_GET['restaurant_id'];?>";
+        var serviceURL = "<?php echo $_SESSION['url']?>:8080/restaurants/<?php echo $_GET['restaurant_id'];?>";
         var rows = "";
         $.get(serviceURL, function (data) {
             var foodList = data.Food; //the arr is in data.Book of the JSON
@@ -94,22 +94,6 @@ require_once 'include/token.php';
         $('#foodArr').val(JSON.stringify(foodArr)); //store array
       
     }
-    // $("#chkFood").click(function () {
-    //         if ($(this).is(":checked")) {
-    //             var foodId = $(this).attr('value'));
-    //             var foodQuantity = $(this).attr('value'));
-    //            <?php 
-    //                 $foodID = "<script>document.writeln(foodId);</script>";
-    //                 $foodQuantity = "<script>document.writeln(foodQuantity);</script>";
-    //                 $arrFood = array($foodID=>$foodQuantity);
-    //                 $foodArr = $foodArr + $arrFood;
-    //             ?>
-    //         } else {
-    //             // $("#dvPassport").hide();
-    //         }
-    //     });
-
-
   
 </script>
 </body>

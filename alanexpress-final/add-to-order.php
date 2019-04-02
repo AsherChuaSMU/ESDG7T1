@@ -3,6 +3,8 @@
 require_once 'include/common.php';
 require_once 'include/protect.php';
 
+include 'stripephp/charge.php';
+
 $order_list = $_SESSION['order_list'];
 $restaurant_id = $_SESSION['restaurant_id'];
 
@@ -11,7 +13,7 @@ $restaurant_id = $_SESSION['restaurant_id'];
 unset($_SESSION["cart"]);
 unset($_SESSION["restaurant_id"]);
 // Replace this serviceURL to yours
-$serviceURL = "http://SMUImage:8081/orders1";
+$serviceURL = $_SESSION['url'].":8081/orders1";
 
 ?>
 
@@ -51,7 +53,7 @@ $serviceURL = "http://SMUImage:8081/orders1";
                 <th>Quantity</th>
             </tr>
          <?php 
-         $serviceURL = "http://SMUImage:8080/restaurants/".$restaurant_id;
+         $serviceURL = $_SESSION['url'].":8080/restaurants/".$restaurant_id;
          $json = file_get_contents($serviceURL);
          $data = json_decode($json, TRUE);
          $food_list = $data['Food'];
@@ -87,7 +89,7 @@ $(document).ready(function(){
     });
     for(var i=0; i<order_list.length; i++){
         
-        $.post( "http://SMUImage:8081/orders1",
+        $.post( "<?php echo $_SESSION['url']?>:8081/orders1",
             JSON.stringify(
             {
                 "order_id": order_list[i]['order_id'],

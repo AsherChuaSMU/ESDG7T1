@@ -2,12 +2,13 @@
 
 require_once 'include/common.php';
 require_once 'include/token.php';
+require_once 'stripephp/config.php';
 
 
 if(isset($_SESSION['cart'])){
     $foodArr = $_SESSION['cart'];
     // Replace this serviceURL to yours
-    $serviceURL = "http://SMUImage:8081/orders";
+    $serviceURL = $_SESSION['url'].":8081/orders";
 // // Service invocation via GET
     $json = file_get_contents($serviceURL);
 
@@ -73,7 +74,7 @@ if(isset($_SESSION['cart'])){
             </tr>
          <?php 
          if($foodArr != null){
-            $serviceURL = "http://SMUImage:8080/restaurants/".$_SESSION['restaurant_id'];
+            $serviceURL = $_SESSION['url'].":8080/restaurants/".$_SESSION['restaurant_id'];
             $json = file_get_contents($serviceURL);
             $data = json_decode($json, TRUE);
             $food_list = $data['Food'];
@@ -104,6 +105,16 @@ if(isset($_SESSION['cart'])){
         }else{
            echo " <h4>Total: $". $total_price. "</h4>
                     <input type='submit' value='Confirm & Pay'> ";
+                    $_SESSION['total_price'] = $total_price;
+                    ?>
+                    <form action="charge.php" method="post">
+                        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                data-key="<?php echo $stripe['publishable_key']; ?>"
+                                data-description="Access for a year"
+                                data-amount="<?php echo ($total_price *100);?>"
+                                data-locale="auto"></script>
+                    </form> 
+            <?php
 
         }
         ?>

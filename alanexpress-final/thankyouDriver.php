@@ -23,20 +23,26 @@
     var driver_id = "<?php echo $_GET["driver_id"]; ?>";
     var restaurant_id = "<?php echo $_GET["restaurant_id"]; ?>";
     var currOrder_id = "<?php echo $_GET["order_id"]; ?>";
-    var ordersURL = "http://SMUImage:8081/orders2/"+ currOrder_id;
+    var ordersURL = "<?php echo $_SESSION['url']?>:8081/orders2/"+ currOrder_id;
+    var updateStatusURL = "<?php echo $_SESSION['url']?>:8081/orders2";
+
+    // alert(ordersURL);
     
     updateOrder(currOrder_id, driver_id);
-    function updateOrder(orderID,driverID){
+    function updateOrder(orderID, driverID){
         $.ajaxSetup({
           headers:{
             'Content-Type': "application/json"
           }
         });
-        $.post(ordersURL, JSON.stringify(
+        $.post(updateStatusURL, JSON.stringify(
           {
-            "order_id": orderID,
-            "driver_id": driverID,
-            "status": "2"
+            "Update_Order": [{
+            "order_id":  orderID,
+            "driver_id": ""+driverID+"",
+            "status": 2
+          }
+        ]
           }
         ),
         function(data, status){

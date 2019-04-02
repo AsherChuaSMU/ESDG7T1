@@ -1,3 +1,7 @@
+<?php
+require_once 'include/common.php';
+require_once 'include/token.php';
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -32,9 +36,9 @@
       }
     </style>
     <script>
-    var ordersURL = "http://SMUImage:8082/orders";
-    var userURL = "http://SMUImage:8080/users";
-    var restaurantURL = "http://SMUImage:8081/restaurants/"+ driver_id;
+    var ordersURL = "<?php echo $_SESSION['url']?>:8082/orders";
+    var userURL = "<?php echo $_SESSION['url']?>:8080/users";
+    var restaurantURL = "<?php echo $_SESSION['url']?>:8081/restaurants/"+ driver_id;
     </script>
   </head>
   <body>

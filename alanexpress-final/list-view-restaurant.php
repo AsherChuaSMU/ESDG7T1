@@ -7,11 +7,15 @@ require_once 'include/token.php';
 if(!isset($_SESSION['user'])){
     //great facebook user
     //user type = facebook user 
-
-    $_SESSION['user'] = urldecode($_GET['user']);
-
+    $username = urldecode($_GET['user']);
+    $_SESSION['token'] = $token;
+    $_SESSION['user'] = $username;
+    $_SESSION['gender'] = $_GET['gender'];
+    $token = generate_token($username);
+    $_SESSION['token'] = $token;
 }
 ?>
+
 <head>
     <!-- Bootstrap libraries -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -34,7 +38,8 @@ if(!isset($_SESSION['user'])){
 <body>
 <script>
     var user_id = "<?php echo($_SESSION['user']); ?>";
-    </script>
+    // alert(user_id);
+</script>
 <div id="map"></div>
 
     <script>
@@ -43,7 +48,7 @@ if(!isset($_SESSION['user'])){
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
       var map, infoWindow;
-      var userURL = "http://SMUImage:8082/users2";
+      var userURL = "<?php echo $_SESSION['url']?>:8082/users2";
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
@@ -156,7 +161,7 @@ if(!isset($_SESSION['user'])){
 <script>
     $(function () {
         // Change serviceURL to your own
-        var serviceURL = "http://SMUImage:8080/restaurants";
+        var serviceURL = "<?php echo $_SESSION['url']?>:8080/restaurants";
         var rows = "";
         $.get(serviceURL, function (data) {
             var restaurantList = data.Restaurant; //the arr is in data.Book of the JSON

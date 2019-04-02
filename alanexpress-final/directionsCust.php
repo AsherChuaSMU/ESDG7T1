@@ -1,3 +1,6 @@
+<?php
+require_once 'include/common.php';
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -35,13 +38,15 @@
     </style>
     <script>
     var driver_id = "<?php echo $_GET["driver_id"]; ?>";
+    alert(driver_id)
     var restaurant_id = "<?php echo $_GET["restaurant_id"]; ?>";
     var currOrder_id = "<?php echo $_GET["order_id"]; ?>";
-    var ordersURL = "http://SMUImage:8081/orders2/"+ currOrder_id;
-    var cust_id = "<?php echo $_GET["customer_id"]; ?>";
-    var custURL = "http://SMUImage:8082/users1/"+ cust_id;
-    var restaurantURL = "http://SMUImage:8080/restaurants/";
-    var updateStatusURL = "http://SMUImage:8081/orders2";
+    var ordersURL = "<?php echo $_SESSION['url']?>:8081/orders2/"+ currOrder_id;
+    var cust_id = "<?php echo urldecode($_GET["customer_id"]); ?>";
+    var custURL = "<?php echo $_SESSION['url']?>:8082/users1/"+ cust_id;
+    var restaurantURL = "<?php echo $_SESSION['url']?>:8080/restaurants/";
+    var updateStatusURL = "<?php echo $_SESSION['url']?>:8081/orders2";
+    alert(updateStatusURL);
     var rows = "";
     $(function () {
       updateStatus(currOrder_id,driver_id);
@@ -53,10 +58,13 @@
         });
         $.post(updateStatusURL, JSON.stringify(
           {
-            "order_id": orderID,
-            "driver_id": driverID,
-            "status": "1"
+            "Update_Order": [{
+            "order_id":  orderID,
+            "driver_id": ""+driverID+"",
+            "status": 1
           }
+        ]
+        }
         ),
         function(data, status){
           alert("Status: " + status + "\nOrder status has been updated");

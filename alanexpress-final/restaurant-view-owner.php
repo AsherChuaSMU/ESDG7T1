@@ -83,7 +83,7 @@ $user_id = $_SESSION['user'];
   
   $(document).ready(function(){
      // Change serviceURL to your own
-     var serviceURL = "http://SMUImage:8080/restaurants1/<?php echo $user_id;?>";
+     var serviceURL = "<?php echo $_SESSION['url']?>:8080/restaurants1/<?php echo $user_id;?>";
         var rows = "";
         $.get(serviceURL, function (data) {
             var restaurant = data.restaurant_id; //the arr is in data.Book of the JSON

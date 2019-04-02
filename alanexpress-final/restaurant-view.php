@@ -5,7 +5,7 @@ require_once 'include/session.php';
 require_once 'include/common.php';
 
 
-$serviceURL = "http://SMUImage:8080/restaurants/". $_GET['restaurant_id'];
+$serviceURL = $_SESSION['url'].":8080/restaurants/". $_GET['restaurant_id'];
 
 
 
