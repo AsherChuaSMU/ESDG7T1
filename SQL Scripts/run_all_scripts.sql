@@ -92,6 +92,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(256) NOT NULL,
   `usertype` varchar(256) NOT NULL,
   `gender` varchar(32) NOT NULL,
+  `email` varchar(256) NOT NULL,
   `longitude` varchar(256),
   `latitude` varchar(256),
   PRIMARY KEY (`username`)
@@ -101,13 +102,13 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `users` (`username`, `password`, `usertype` , `gender`) VALUES
-('hello', 'hello123', 'customer', 'male'),
-('hey', 'hey123', 'owner', 'male'),
-('owner1', 'owner123', 'owner', 'female'),
-('owner2', 'owner234', 'owner', 'male'),
-('bye', 'bye123', 'driver', 'female'),
-('admin', 'admin123', 'admin', 'male');
+INSERT INTO `users` (`username`, `password`, `usertype` , `gender`, `email`) VALUES
+('hello', 'hello123', 'customer', 'male', 'hello@alan.com'),
+('hey', 'hey123', 'owner', 'male', 'hey@alan.com'),
+('owner1', 'owner123', 'owner', 'female', 'owner1@alan.com'),
+('owner2', 'owner234', 'owner', 'male', 'owner2@alan.com'),
+('bye', 'bye123', 'driver', 'female', 'bye@alan.com'),
+('admin', 'admin123', 'admin', 'male', 'admin@alan.com');
 COMMIT;
 
 /*  CREATE DATABASE IF NOT EXISTS alanexpress_driver;
