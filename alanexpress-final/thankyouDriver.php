@@ -25,8 +25,8 @@
     var currOrder_id = "<?php echo $_GET["order_id"]; ?>";
     var ordersURL = "http://SMUImage:8081/orders2/"+ currOrder_id;
     
-    updateOrder(currOrder_id);
-    function updateOrder(orderID){
+    updateOrder(currOrder_id, driver_id);
+    function updateOrder(orderID,driverID){
         $.ajaxSetup({
           headers:{
             'Content-Type': "application/json"
@@ -35,6 +35,7 @@
         $.post(ordersURL, JSON.stringify(
           {
             "order_id": orderID,
+            "driver_id": driverID,
             "status": "2"
           }
         ),

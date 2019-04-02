@@ -44,8 +44,8 @@
     var updateStatusURL = "http://SMUImage:8081/orders2";
     var rows = "";
     $(function () {
-      updateStatus(currOrder_id);
-      function updateStatus(orderID){
+      updateStatus(currOrder_id,driver_id);
+      function updateStatus(orderID,driverID){
         $.ajaxSetup({
           headers:{
             'Content-Type': "application/json"
@@ -54,6 +54,7 @@
         $.post(updateStatusURL, JSON.stringify(
           {
             "order_id": orderID,
+            "driver_id": driverID,
             "status": "1"
           }
         ),
