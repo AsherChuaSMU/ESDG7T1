@@ -160,7 +160,7 @@ require_once 'include/common.php';
     <input id="addressB" type="text" style="width:600px;" value="Restaurant Location" disabled/><br/>
     <input id="latitudeB" type="text" style="width:300px;" disabled/>
     <input id="longitudeB" type="text" style="width:300px;" disabled/><br/>
-    <script async defer
+    <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKTeCkUZ2ATFI9dxadr9Hh0RvsA-QfnMU&callback=initMap">
     </script>
     <h1>Order Details</h1>

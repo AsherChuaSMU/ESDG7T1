@@ -90,7 +90,7 @@ require_once 'include/token.php';
     <input id="latitude" type="text" style="width:300px;" disabled/>
     <input id="longitude" type="text" style="width:300px;" disabled/><br/>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKTeCkUZ2ATFI9dxadr9Hh0RvsA-QfnMU    &callback=initMap">
+    src="https://bytay2017-eval-test.apigee.net/gmaps">
     </script>
     
   </body>
