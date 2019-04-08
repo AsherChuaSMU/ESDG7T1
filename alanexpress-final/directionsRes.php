@@ -38,29 +38,55 @@ require_once 'include/common.php';
     </style>
     <script>
     var driver_id = "<?php echo $_GET["driver_id"]; ?>";
+    alert(driver_id)
     var restaurant_id = "<?php echo $_GET["restaurant_id"]; ?>";
     var currOrder_id = "<?php echo $_GET["order_id"]; ?>";
-    var ordersURL = "<?php echo $_SESSION['url']?>:8081/orders2/" + currOrder_id;
-    var driverURL = "<?php echo $_SESSION['url']?>:8082/users1/" + driver_id;
+    var ordersURL = "<?php echo $_SESSION['url']?>:8081/orders2/"+ currOrder_id;
+    var cust_id = "<?php echo urldecode($_GET["customer_id"]); ?>";
+    var custURL = "<?php echo $_SESSION['url']?>:8082/users1/"+ cust_id;
     var restaurantURL = "<?php echo $_SESSION['url']?>:8080/restaurants/";
-    var rows = ""
-      $(function(){
-        $.get(ordersURL, function (data) { //print current order list
+    var updateStatusURL = "<?php echo $_SESSION['url']?>:8081/orders2";
+    alert(updateStatusURL);
+    var rows = "";
+    $(function () {
+      updateStatus(currOrder_id,driver_id);
+      function updateStatus(orderID,driverID){
+        $.ajaxSetup({
+          headers:{
+            'Content-Type': "application/json"
+          }
+        });
+        $.post(updateStatusURL, JSON.stringify(
+          {
+            "Update_Order": [{
+            "order_id":  orderID,
+            "driver_id": ""+driverID+"",
+            "status": 1
+          }
+        ]
+        }
+        ),
+        function(data, status){
+          alert("Status: " + status + "\nOrder status has been updated");
+        });
+      }
+        $.get(ordersURL, function (data) {
             var orderList = data.Order;
             if (orderList == undefined) { // did not manage to call service
                 $('#orderTable').empty();
                 $('body').append("<label>There is a problem retrieving orders data, please try again later.</label>");
             }
             for (var i = 0; i <orderList.length; i++) {
-                if (orderList[i].order_id == <?php echo $_GET["order_id"]; ?>){
+                if (orderList[i].order_id == currOrder_id){
                 eachRow =
                     "<td>" + orderList[i].order_id + "</td>" +
                     "<td>" + orderList[i].customer_id + "</td>" +
                     "<td>" + orderList[i].food_id + "</td>" +
                     "<td>" + orderList[i].quantity + "</td>" +
                     "<td>" + orderList[i].restaurant_id + "</td>" +
-                    "<td><a href='directionsCust.php?order_id=" + orderList[i].order_id + "&restaurant_id=" + orderList[i].restaurant_id +"&driver_id="+driver_id+"&customer_id="+orderList[i].customer_id+"'>" +
-                    "Start Delivery</a></td>";
+                    "<td><a href='thankyouDriver.php?order_id=" + orderList[i].order_id + "&customer_id=" + orderList[i].customer_id +"&driver_id="+driver_id+"'>" +
+                    "End Delivery</a>";
+
                 rows += "<tr>" + eachRow + "</tr>";
                 }
             }
@@ -71,16 +97,15 @@ require_once 'include/common.php';
                 alert("Did you forget to run Tibco");
                 $('body').append("<label>There is a problem retrieving order data, please try again later.</label>");
             })
-
-        $.get(restaurantURL, function (data) {//get restaurant address
+    $.get(restaurantURL, function (data) {//get restaurant address
             var restaurantList = data.Restaurant;
             if (restaurantList == undefined) { // did not manage to call service
                 alert("<label>There is a problem retrieving restaurant data, please try again later.</label>");
             }
             for (var i = 0; i <restaurantList.length; i++) {
                 if (restaurantList[i].restaurant_id == restaurant_id){
-                  $("#latitudeB").val(restaurantList[i].latitude);
-                  $("#longitudeB").val(restaurantList[i].longitude);
+                  $("#latitudeA").val(restaurantList[i].latitude);
+                  $("#longitudeA").val(restaurantList[i].longitude);
 
                 }
             }
@@ -89,14 +114,14 @@ require_once 'include/common.php';
                 alert("Did you forget to run Tibco");
             })
         
-        $.get(driverURL, function (data) {//get restaurant address
-            var driverList = data;
-            if (driverList == undefined) { // did not manage to call service
+        $.get(custURL, function (data) {//get customer address
+            var custList = data;
+            if (custList == undefined) { // did not manage to call service
                 alert("<label>There is a problem retrieving driver data, please try again later.</label>");
             }
-                if (driverList.username == driver_id){
-                  $("#latitudeA").val(driverList.latitude);
-                  $("#longitudeA").val(driverList.longitude);
+                if (custList.username == cust_id){
+                  $("#latitudeB").val(custList.latitude);
+                  $("#longitudeB").val(custList.longitude);
                   
                 }
         })
@@ -104,7 +129,6 @@ require_once 'include/common.php';
                 alert("Did you forget to run Tibco");
             })
     });
-      
     </script>
   </head>
   <body>
@@ -119,13 +143,12 @@ require_once 'include/common.php';
     </div>
     <div id="map"></div>
     <script>
-        function initMap() {
-      
+      function initMap() {
         var directionsDisplay = new google.maps.DirectionsRenderer;
         var directionsService = new google.maps.DirectionsService;
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 14,
-          center: {lat: 41.85, lng: -87.65}
+          center: {lat: 37.77, lng: -122.447}
         });
         directionsDisplay.setMap(map);
 
@@ -135,7 +158,7 @@ require_once 'include/common.php';
           calculateAndDisplayRoute(directionsService, directionsDisplay);
         });
       }
-  
+
       function calculateAndDisplayRoute(directionsService, directionsDisplay) {
         var selectedMode = document.getElementById('mode').value;
         directionsService.route({
@@ -157,11 +180,11 @@ require_once 'include/common.php';
     <input id="addressA" type="text" style="width:600px;" value="My Location" disabled/><br/>
     <input id="latitudeA" type="text" style="width:300px;" disabled/>
     <input id="longitudeA" type="text" style="width:300px;" disabled/><br/>
-    <input id="addressB" type="text" style="width:600px;" value="Restaurant Location" disabled/><br/>
+    <input id="addressB" type="text" style="width:600px;" value="Customer Location" disabled/><br/>
     <input id="latitudeB" type="text" style="width:300px;" disabled/>
     <input id="longitudeB" type="text" style="width:300px;" disabled/><br/>
-    <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKTeCkUZ2ATFI9dxadr9Hh0RvsA-QfnMU&callback=initMap">
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKTeCkUZ2ATFI9dxadr9Hh0RvsA-QfnMU    &callback=initMap">
     </script>
     <h1>Order Details</h1>
     <div class="col-md-6">
@@ -172,7 +195,7 @@ require_once 'include/common.php';
                 <th>Food</th>
                 <th>Qty</th>
                 <th>Restaurant</th>
-                <th>Arrived?</th>
+                <th></th>
             </tr>
         </table>
     </div>

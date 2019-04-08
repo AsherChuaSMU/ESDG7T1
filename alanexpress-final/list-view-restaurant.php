@@ -142,7 +142,7 @@ if(!isset($_SESSION['user'])){
                 <!-- <input id="address" type="text" style="width:600px;" disabled/><br/>
                 <input id="latitude" type="text" style="width:300px;" disabled/>
                 <input id="longitude" type="text" style="width:300px;" disabled/><br/> -->
-  <script
+  <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKTeCkUZ2ATFI9dxadr9Hh0RvsA-QfnMU&callback=initMap">
     </script>  
     <?php include "include/header.php";?>

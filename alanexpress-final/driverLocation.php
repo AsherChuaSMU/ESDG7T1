@@ -180,9 +180,9 @@ require_once 'include/common.php';
                 <input id="address" type="text" style="width:600px;" disabled/><br/>
                 <input id="latitude" type="text" style="width:300px;" disabled/>
                 <input id="longitude" type="text" style="width:300px;" disabled/><br/>
-    <script
+  <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKTeCkUZ2ATFI9dxadr9Hh0RvsA-QfnMU&callback=initMap">
-    </script> 
+    </script>  
 <h1>Orders Listing</h1>
     <div class="col-md-6">
         <table id="orderTable" class='table table-striped' id='restaurant-list' border='1'>
