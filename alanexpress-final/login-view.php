@@ -111,7 +111,7 @@ if (isset($_POST['username'])) {
 						</a> -->
 
 </form>
-          <script src='js/script1.js' type='text/javascript'></script>
+          <script src='js/facebookscript.js' type='text/javascript'></script>
             <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
             </fb:login-button>
             

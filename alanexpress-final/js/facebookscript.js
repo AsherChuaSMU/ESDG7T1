@@ -80,17 +80,6 @@
                 });
               }
 
-              // function getUser(name,email){
-              //   var getUserURL = "http://SMUImage:8082/users1/"+name;
-              //   $.get(getUserURL, function (data) {
-              //     var username = data.username; //the arr is in data.Order of the JSON
-      
-              // }) // $.get
-              //     .fail(function () {
-              //       addUser(name, email);
-              //     })
-              //   // window.location.assign("/alanexpress-final/list-view-restaurant.php?user="+name);
-              // }
 
             function addUser(name, email) {
               
@@ -99,8 +88,8 @@
                       'Content-Type':"application/json"
                   }
               });
-                  
-              $.post("http://SMUImage:8082/users1",
+              
+              $.post("http://DESKTOP-335MBFG/users1",
                       JSON.stringify(
                       {
                           "username": ""+name+"",
@@ -111,10 +100,6 @@
                           "longitude": "103.84981790000006",
                           "latitude": "1.294667"
                       }) 
-              // ,function(data, status){
-              //     alert ("Data: "+data+ "\nStatus: "+status);
-              //     // window.location.replace("/alanexpress-final/list-view-restaurant.php?user="+response.name+"&gender=male");
-              // }
               );
 
               // window.location.assign("/alanexpress-final/list-view-restaurant.php?user="+name+"&email="+email);

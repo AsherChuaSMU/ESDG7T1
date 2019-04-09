@@ -1,8 +1,8 @@
 # ESDG7T1
 ALANEXPRESS
 
-TIBCO
-1) Download AlanExpress.zip and pace it in a d iectory that you can easily locate
+TIBCO + SQL Import
+1) Download AlanExpress.zip and pace it in a directory that you can easily locate
 2) Launch the Tibco Designer
 3) Once Tibco starts, head over to File > Import > Existing Studio Projects into Workspace > Select archive file > Browse and look for the AlanExpress.zip and press Finish.
 4) Tibco will import the microservices from the zip file selected.
@@ -11,7 +11,7 @@ TIBCO
 
 
 For sending email on gmail to work
-1) download openssl that is in the given file and extract all and save it in c drive
+1) download openssl-1.0.2j-fips-x86_64.zip that is in the given file and extract all and save it in c drive
 2) use openssl to download certificate (openssl.exe is in the bin folder)
 Steps to take: 
  - open command prompt
@@ -26,6 +26,7 @@ Steps to take:
  - dir to double check keytool.exe is in this directory.
  - copy paste the following:
 keytool.exe -importcert -alias gmail -file google587.cer -keystore MyKeyStore
+
  - when being prompt to create password, use this password: esdg7t1esd
  - re-type the same password to confirm and type y when being prompt whether you trust this certificate
  - when cmd says certificate was added to keystore
@@ -35,7 +36,7 @@ Go to properties -> general -> edit default Resource
 Under Security, click SSL Client
 Under Basic SSL Client Configuration, click Keystore Provider as Trust Store.
 Under Keystore URL, change 'alanexpress' to your workspace name and change password to -> esdg7t1esd
-Lastly, save changes and you will be able to see the sent mail to the admin email when restaurant owners adds a new food item and price.
+Lastly, save changes and you will be able to see the sent mail to the admin email when restaurant owners adds a new food item and price in the UI.
 
 To check that email is sent after restaurant owners adds a new food item and price, you can go to the following gmail account: esd.g7t1@gmail.com and password: esdg7t1esd
 
@@ -45,8 +46,8 @@ Facebook Login API
 1. Please use this account to use the Facebook login API:
 gmail account: esd.g7t1@gmail.com 
 password: esdg7t1esd
-2. For the API to work in the application. In line 87 of 'facebookscript' in 'js' folder, please change the domain of the post url with the domain of your request URL.
-3. In line 107, please change the domain of the URL to your localhost domain 
+2. For the API to work in the application. In line 92 of 'facebookscript' in 'js' folder, please change the domain of the post url with the domain of your request URL.
+3. In line 108, please change the domain of the URL to your localhost domain 
 
 
 Session['url']

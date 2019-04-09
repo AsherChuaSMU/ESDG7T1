@@ -16,7 +16,7 @@ spl_autoload_register(function($class) {
 session_start();
 ini_set('display_errors', 1);
 
-$_SESSION['url'] = 'http://SMUImage';
+$_SESSION['url'] = 'http://DESKTOP-335MBFG';
 
 # get configuration parameters
 // include "configuration.php";
