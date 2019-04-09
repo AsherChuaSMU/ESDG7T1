@@ -47,3 +47,17 @@ password: esdg7t1esd
 
 Session['url']
 1. For the application to work, please change the $_SESSION['url'] in the 'include' folder with the domain of your Request URL. 
+
+
+Stripe API
+
+User Visa Details:
+Card Number:4242 4242 4242 4242
+Expiry Date: 12/34
+Password: <Auto filled>
+
+Stripe Admin Account details: 
+Username: ylfoo.2017@sis.smu.edu.sg 
+Password: dazab33! 
+Publishable key:pk_test_UsHiN8jvCBu0IcS7Xwfe29N200ZPgVcKbT 
+Secret key:sk_test_5H6z88lc6DRjpkEElh2uUtal00VGG60gzp 
