@@ -2,8 +2,12 @@
 ALANEXPRESS
 
 TIBCO
-
-
+1) Download AlanExpress.zip and pace it in a d iectory that you can easily locate
+2) Launch the Tibco Designer
+3) Once Tibco starts, head over to File > Import > Existing Studio Projects into Workspace > Select archive file > Browse and look for the AlanExpress.zip and press Finish.
+4) Tibco will import the microservices from the zip file selected.
+5) In order to use the microservices, head to Run > Run Configurations...
+6) The microservices would have started running by now
 
 
 For sending email on gmail to work
